@@ -1,0 +1,49 @@
+extends layout
+
+block content
+    .container-fluid.landing-sm.landing--gray
+        h1.display-1.text-center.landing-sm__heading=product.name
+    .container-fluid.my-5.product-detail
+        .container
+            .row
+                .col-md-6.mb-md-0.mb-4
+                    img.img-fluid.product-detail__img(src='../'+ product.imagePath.large, alt=product.name + ' large')
+                .col-md-5
+                    h2.text-uppercase.product-detail__name=product.name
+                    |
+                    small.text-uppercase
+                        em='men\'s ' + product.catergory + ' shoes'
+                    p.product-detail__price=product.price
+                    .row
+                        .col-6.btn-group
+                            button.product-detail__button.product-detail__button--gray.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') SIZE
+                            .dropdown-menu.dropdown-menu-center
+                                a.dropdown-item(href='#') 7
+                                |
+                                a.dropdown-item(href='#') 8
+                                |
+                                a.dropdown-item(href='#') 9
+                        .col-6
+                            button.product-detail__button.product-detail__button--orange
+                                a(href='/products/add-to-cart/' + product.id) ADD TO CART
+    .container-fluid.m-4.py-4.border
+        .container
+            .row
+                .col-md-4.mb-md-0.mb-4
+                    img.img-fluid.product-detail__img(src='../'+ product.imagePath.small, alt=product.name + ' small')
+                .col-md-8
+                    h1=product.description.slogan
+                    p=product.description.shortDescription
+                    if product.description.benefits
+                        h4 BENEFITS
+                    ul
+                        each benefit in product.description.benefits
+                            li=benefit
+                    if product.description.details.length > 0
+                        h4 PRODUCT DETAILS
+                    ul
+                        each detail in product.description.details
+                            li=detail
+                    if product.description.origin
+                        h4=product.name + ' Origin'
+                    p=product.description.origin

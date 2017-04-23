@@ -1,0 +1,62 @@
+extends layout
+
+mixin item(item)
+    a.col-lg-3.col-md-4.col-sm-6.products-list__item.box-anim(href='/products/'+item.id)
+        img.img-fluid(src=item.imagePath.small, alt=item.name)
+        h3.products-list__item__name= item.name
+        p.products-list__item__price= item.price
+
+block content
+    .container-fluid.landing-md(class="landing--" + title)
+        h1.display-1.text-center.landing-md__heading
+            | MEN&apos;S
+            br
+            span.orange.text-uppercase=title
+            |  SHOES
+    .container-fluid.products-list
+        .container-fluid
+            .row
+                .col-md-2.hidden-md-down
+                    .card
+                        .card-block
+                            h4.card-title.m-0.white COLLECTIONS
+                        ul.list-group.list-group-flush
+                            li.list-group-item
+                                a.category-link(href='/collections/running') Running
+                            li.list-group-item
+                                a.category-link(href='/collections/basketball') Basketball
+                            li.list-group-item
+                                a.category-link(href='/collections/football') Football
+                            li.list-group-item
+                                a.category-link(href='/collections/training') Training
+                            li.list-group-item
+                                a.category-link(href='/collections/sportswear') Sportswear
+                            li.list-group-item
+                                a.category-link(href='/collections/jordan') Jordan
+                        //.card-block
+                        //    h4.card-title.m-0.white FILTER
+                        //ul.list-group.list-group-flush
+                        //    li.list-group-item
+                        //        form.form-inline
+                        //            label.mr-sm-2(for='quantity') Name
+                        //            |
+                        //            select#quantity.custom-select.mb-2.mr-sm-2.mb-sm-0
+                        //                option(selected='') A - Z
+                        //                option Z - A
+                        //    li.list-group-item
+                        //        form.form-inline
+                        //            label.mr-sm-2(for='quantity') Price
+                        //            |
+                        //            select#quantity.custom-select.mb-2.mr-sm-2.mb-sm-0
+                        //                option(selected='') Ascending
+                        //                option Descending
+                .col-lg-10.col-md-12.row.text-center
+                    each item in products
+                        +item(item)
+    .container-fluid.m-4.py-4.border
+        .container.text-center.catergory-description
+            h2 MEN&apos;S RUNNING SHOES
+            p
+                | Nike men&rsquo;s running shoes feature the latest innovations to help you get more from your run, whatever your experience level, distance and preferences. For a minimalist like running shoe, try a natural running style. If you like a softer feel underfoot, check out cushioned styles. Or shop responsive styles if you prefer a springy, lightweight running shoe. Nike also offers racing shoes for competitive runners. Find the perfect Nike men&rsquo;s running shoe for you and get ready for your next race with Nike+ Run Club Training Plans. Learn about common running myths around plantar fasciitis, barefoot running and pronation running shoes from the Nike+ Run Club.
+
+

@@ -1,0 +1,39 @@
+extends layout
+
+mixin collection(collection)
+    a.col-md-4.col-6.catergory__item.zoom-in.ease-in(href='/collections/' + collection._id.category)
+        img.img-fluid(src=collection.imagePath[0], alt=collection._id.category)
+        h3.text-uppercase
+            strong=collection._id.category
+
+block content
+    .container-fluid.py-5.catergory
+        .row
+            .col-10.offset-1.row
+                .col-md-3.my-auto
+                    h2 FIND THE RIGHT SHOE FOR YOUR SPORT
+                    p
+                        | Up your game in our latest innovations for the court, the field, and everywhere in between.
+                .col-md-9.text-center
+                    .row
+                        each collection in collections
+                            +collection(collection)
+    .containr-fluid.feature-products
+        .row.m-0.text-center
+            .col-md-6.feature-products__item
+            .col-md-6.feature-products__item
+            .col-12.feature-products__item
+    .container-fluid.newsletter
+        .container
+            .row
+                .col-lg-5
+                    h4.display-4.white Newsletter
+                    p.mt-3.white
+                        | Subscribe to the T.Racer mailing list to receive updates on new arrivals, special offers and other discount information.
+                .col-lg-7
+                    form.form-inline.mt-lg-5(id='subscribe')
+                        input.input.input--sign(placeholder='YOUR EMAIL ADDRESS' name='subscribeEmail')
+                        |
+                        button.ease-in(type='submit' name='submit') SUBSCRIBE
+
+

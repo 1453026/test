@@ -1,0 +1,103 @@
+doctype html
+html
+    head
+        title= title
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        link(href='https://fonts.googleapis.com/css?family=Open+Sans', rel='stylesheet')
+        link(rel='stylesheet', href='/stylesheets/bootstrap/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/animate/animate.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet', href='/stylesheets/effect.css')
+        title T.Racer | Homepage
+    body
+        block nav
+            nav.navbar.navbar-toggleable-md.fixed-top
+                button.navbar-toggler.hidden-lg-up(type='button', data-toggle='collapse-side', data-target='.side-collapse') &#x2630;
+                |
+                a.navbar-brand(href='/')
+                    | T
+                    span.orange .
+                    | R
+                    span.orange A
+                    | C
+                    span.orange E
+                    | R
+                .ml-auto.side-collapse.in
+                    ul.navbar-nav
+                        li.nav-item
+                            a.nav-link.active(href='/') Home
+                        li.nav-item
+                            a.nav-link(href='/collections') Collections
+                        li.nav-item
+                            a.nav-link(href='/contact') Contact
+                        li.nav-item
+                            a.nav-link(href='/profile') Profile
+                        form.form-inline.mr-auto(method='post' action='/search')
+                            input.input.input--search(placeholder='Search' name='value')
+                            input(type="submit" style="position: absolute; left: -9999px")
+                .btn-group.navbar__cart
+                    button.navbar__cart__btn(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                        i.fa.fa-shopping-cart.fa-2x(aria-hidden='true')
+                    .dropdown-menu.dropdown-menu-right.navbar__cart__dropdown-menu
+                        if session.cart
+                            for item in session.cart.items
+                                .dropdown-item.text-center.navbar__cart__dropdown-item
+                                    img.navbar__cart__img(src=item.url, alt='')
+                                    .overlay.ease-in
+                                        a.ml-2(href='/products/delete-from-cart/' + item._id)
+                                            i.fa.fa-remove.fa-2x
+                                    .text-left
+                                        span.badge.badge-success.mr-2=item.price
+                                        span=item.name
+                                        | &nbsp;x&nbsp;
+                                        span.orange=item.quantity
+                            button.dropdown-item.text-center.white.navbar__cart__checkout.ease-in(type='button', onclick="location.href='/checkout'") CHECKOUT
+        block content
+        block footer
+            footer.container-fluid
+                .container
+                    .row
+                        .col-md-4.col-sm-6
+                            h4.display-5.mt-5.mb-3.orange MY ACCOUNT
+                            ul
+                                li
+                                    a(href='#') MY ORDERS
+                                li
+                                    a(href='#') MY PERSONAL INFO
+                        .col-md-3.col-sm-6
+                            h4.display-5.mt-5.mb-3.orange CATERGOTIES
+                            ul.row
+                                li.col-6
+                                    a(href='#') RUNNING
+                                li.col-6
+                                    a(href='#') BASKETBALL
+                                li.col-6
+                                    a(href='#') SOCCER
+                                li.col-6
+                                    a(href='#') TRAINING
+                                li.col-6
+                                    a(href='#') SPORTWEAR
+                                li.col-6
+                                    a(href='#') JORDAN
+                        .col-md-4.offset-md-1.col-sm-12
+                            h4.display-5.mt-5.mb-3.orange STORE INFOREMATION
+                            ul
+                                li.mb-4
+                                    i.fa.fa-map-marker.fa-lg(aria-hidden='true')
+                                    |
+                                    span MY COMPANY, 4578 MARMORA ROAD
+                                li.mb-4
+                                    i.fa.fa-phone.fa-lg(aria-hidden='true')
+                                    |
+                                    a.phone-no(href='#') 0123-456-789
+                                li.mb-4
+                                    i.fa.fa-envelope.fa-lg(aria-hidden='true')
+                                    |
+                                    a(href='#') INFO@DEMOLINK.ORG
+        block script
+            script(src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous")
+            script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
+            script(src='https://use.fontawesome.com/2e63bc4dd0.js')
+            script(src='/javascripts/bootstrap.min.js')
+            script(src='/javascripts/script.js')

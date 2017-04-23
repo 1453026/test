@@ -1,0 +1,52 @@
+extends layout
+
+mixin product(product)
+    .row.checkout__item
+        .col-3
+            img.img-fluid(src=product.url, alt='')
+        .col-9
+            h4.text-uppercase=product.name
+            .row
+                .col-9
+                    p=product.description
+                .col-3
+                    span.badge.badge-success.checkout__price=product.price
+            form.form-inline
+                label.mr-sm-2(for='quantity') Quantity
+                |
+                select#quantity.custom-select.mb-2.mr-sm-2.mb-sm-0
+                    option(selected='') 1
+                    option(value='2') 2
+                    option(value='3') 3
+                    option(value='4') 4
+                    option(value='5') 5
+    hr
+
+block content
+    .container-fluid.landing-sm.landing--gray
+        h1.display-1.text-center.landing-sm__heading
+            span.orange CHECK
+            | OUT
+    .container.my-5.checkout
+        .row
+            if session.cart
+                .col-sm-9
+                    for item in session.cart.items
+                        +product(item)
+                .col-sm-3
+                    .card
+                        .card-block
+                            h4.card-title.m-0.white RECIPE
+                        ul.list-group.list-group-flush
+                            li.list-group-item
+                                .row
+                                    .col-8
+                                        p Total
+                                    .col-4
+                                        p.display-4
+                                            strong=session.cart.totalPrice
+                                            | $
+                        .car-block
+                            button.checkout__btn(onclick="location.href='/checkout/proceed'") PROCEED
+
+

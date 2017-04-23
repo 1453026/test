@@ -1,0 +1,28 @@
+extends layout
+
+block content
+    .container-fluid.landing-sm.landing--gray
+        h1.display-1.text-center.landing-sm__heading.orange
+            | CONTACT
+            span.orange &nbsp;US
+    section.container-fluid.p-0
+        #map.map
+    .container-fluid.newsletter
+        .container
+            .row
+                .col-lg-5
+                    h4.display-4.white Newsletter
+                    p.mt-3.white
+                        | Subscribe to the T.Racer mailing list to receive updates on new arrivals, special offers and other discount information.
+                .col-lg-7
+                    form.form-inline.mt-lg-5
+                        input.input.input--subscribe(placeholder='YOUR EMAIL ADDRESS')
+                        |
+                        button(type='submit') SUBSCRIBE
+    block script
+        script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js', integrity='sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n', crossorigin='anonymous')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
+        script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDh2yzbYDxRl1MhJQhpb1CiRPwtJqnfzBs&callback=initMap')
+        script(src='https://use.fontawesome.com/2e63bc4dd0.js')
+        script(src='/javascripts/bootstrap.min.js')
+        script(src='/javascripts/script.js')

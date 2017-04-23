@@ -1,0 +1,246 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Products Management
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap/bootstrap.min.css', type='text/css')
+    link(rel='stylesheet', href='/stylesheets/admin.css', type='text/css')
+    //link(rel='stylesheet', href='css/effect.css', type='text/css')
+    script(src='https://use.fontawesome.com/ab5f3b016d.js')
+  body
+    #wrapper
+      nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          |  
+          a.navbar-brand(href='index.html') T.RACER
+        ul.nav.navbar-right.top-nav
+          li.dropdown
+            a.dropdown-toggle(href='#', data-toggle='dropdown')
+              i.fa.fa-envelope
+              b.caret
+            ul.dropdown-menu.message-dropdown
+              li.message-preview
+                a(href='#')
+                  .media
+                    span.pull-left
+                      img.media-object(src='http://placehold.it/50x50', alt='')
+                    .media-body
+                      h5.media-heading
+                        strong John Smith
+                      p.small.text-muted
+                        i.fa.fa-clock-o
+                        |  Yesterday at 4:32 PM
+                      p Lorem ipsum dolor sit amet, consectetur...
+              li.message-preview
+                a(href='#')
+                  .media
+                    span.pull-left
+                      img.media-object(src='http://placehold.it/50x50', alt='')
+                    .media-body
+                      h5.media-heading
+                        strong John Smith
+                      p.small.text-muted
+                        i.fa.fa-clock-o
+                        |  Yesterday at 4:32 PM
+                      p Lorem ipsum dolor sit amet, consectetur...
+              li.message-preview
+                a(href='#')
+                  .media
+                    span.pull-left
+                      img.media-object(src='http://placehold.it/50x50', alt='')
+                    .media-body
+                      h5.media-heading
+                        strong John Smith
+                      p.small.text-muted
+                        i.fa.fa-clock-o
+                        |  Yesterday at 4:32 PM
+                      p Lorem ipsum dolor sit amet, consectetur...
+              li.message-footer
+                a(href='#') Read All New Messages
+          li.dropdown
+            a.dropdown-toggle(href='#', data-toggle='dropdown')
+              i.fa.fa-bell
+              b.caret
+            ul.dropdown-menu.alert-dropdown
+              li
+                a(href='#')
+                  | Alert 1 
+                  span.label.label-default Alert Badge
+              li
+                a(href='#')
+                  | Alert 2 
+                  span.label.label-primary Alert Badge
+              li
+                a(href='#')
+                  | Alert 3 
+                  span.label.label-success Alert Badge
+              li
+                a(href='#')
+                  | Alert 4 
+                  span.label.label-info Alert Badge
+              li
+                a(href='#')
+                  | Alert 5 
+                  span.label.label-warning Alert Badge
+              li
+                a(href='#')
+                  | Alert 6 
+                  span.label.label-danger Alert Badge
+              li.divider
+              li
+                a(href='#') View All
+          li.dropdown
+            a.dropdown-toggle(href='#', data-toggle='dropdown')
+              i.fa.fa-user
+              |  Hello, Admin
+              b.caret
+            ul.dropdown-menu
+              li
+                a(href='setting.html')
+                  i.fa.fa-fw.fa-cog
+                  |  Setting
+              li.divider
+              li
+                a(href='#')
+                  i.fa.fa-fw.fa-power-off
+                  |  Log Out
+        .collapse.navbar-collapse.navbar-ex1-collapse
+          ul.nav.navbar-nav.side-nav
+            li.sidenav-search
+              .input-group.custom-search-form
+                input.form-control(type='text', placeholder='Search...')
+                |  
+                span.input-group-btn
+                  button.btn.btn-default(type='button')
+                    i.fa.fa-search
+            li.nav-item
+              a.nav-link(href='/admin/dashboard')
+                i.fa.fa-fw.fa-dashboard
+                |  &nbsp;Dashboard
+            li.nav-item
+              a.nav-link(href='/admin/users')
+                i.fa.fa-fw.fa-id-card
+                |  &nbsp;Users
+            li.nav-item.active
+              a.nav-link(href='/admin/products')
+                i.fa.fa-fw.fa-shopping-cart
+                |  &nbsp;Products
+            li.nav-item
+              a.nav-link(href='/admin/history')
+                i.fa.fa-history.fa-fw &nbsp;History
+            li.nav-item
+              a.nav-link(href='/admin/about')
+                i.fa.fa-address-book.fa-fw &nbsp;About
+      #page-wrapper
+        .container-fluid
+          .row
+            .col-lg-12.col-md-12.col-sm-12.col-xs-12
+              h1.page-header  Products Management
+              ol.breadcrumb
+                li.active
+                  i.fa.fa-shopping-cart &nbsp;Products
+            .sidenav-search.col-md-3.pull-right
+              .input-group.custom-search-form
+                input.form-control(type='text', placeholder='Search for names, ID, order ID,...')
+                |  
+                span.input-group-btn
+                  button.btn.btn-default(type='button')
+                    i.fa.fa-search
+                |  
+                button.btn.btn-default.pull-right(type='button')
+                  a.nav-link(href='/admin/products/add')
+                    span.glyphicon.glyphicon-plus(aria-hidden='true')
+            table.table.table-config
+              tr
+                th Id
+                th Photo
+                th Name
+                th Category
+                th Price
+                th Quatity
+                th Status
+                th
+                th
+              tr
+                td 1
+                td
+                  a.thumbnail(href='#')
+                    img(src='../user/images/collections/running/air-max-2017-running-shoe-small.jpg', alt='')
+                td Air max 2017 running shoe
+                td Running
+                td $100
+                td 14
+                td Active
+                td
+                  button.btn.btn-default(type='button') Edit
+                td
+                  button.btn.btn-default(type='button') Delete
+              tr
+                td 1
+                td
+                  a.thumbnail(href='#')
+                    img(src='../user/images/collections/running/air-zoom-all-out-flyknit-running-shoe-small.jpg', alt='')
+                td Air zoom all out flyknit running shoe
+                td Running
+                td $100
+                td 14
+                td Active
+                td
+                  button.btn.btn-default(type='button') Edit
+                td
+                  button.btn.btn-default(type='button') Delete
+              tr
+                td 1
+                td
+                  a.thumbnail(href='#')
+                    img(src='../user/images/collections/running/free-rn-flyknit-running-shoe-small.jpg', alt='')
+                td Free rn flyknit running shoe
+                td Running
+                td $100
+                td 14
+                td Active
+                td
+                  button.btn.btn-default(type='button') Edit
+                td
+                  button.btn.btn-default(type='button') Delete
+      #footer-menu.text-center.col-lg-12.col-md-12.col-sm-12.col-xs-12
+        p(style='font-size: 15px !important;')
+          | T.Racer
+          sup
+            i.fa.fa-trademark.fa-fw
+          |  is a website created by our team.
+        p
+          | Copyrights
+          sup &copy;
+          |  2017 by G13 - Pete. All rights reserved.
+        ul.list-inline
+          li
+            a#btn-fb.btn-social.btn-outline(href='#')
+              i.fa.fa-fw.fa-facebook
+          li
+            a#btn-gg.btn-social.btn-outline(href='#')
+              i.fa.fa-fw.fa-google-plus
+          li
+            a#btn-tw.btn-social.btn-outline(href='#')
+              i.fa.fa-fw.fa-twitter
+          li
+            a#btn-link.btn-social.btn-outline(href='#')
+              i.fa.fa-fw.fa-linkedin
+          li
+            a#btn-git.btn-social.btn-outline(href='#')
+              i.fa.fa-fw.fa-github
+      script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+      script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+      script(src='https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js')
+      script(src='https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js')
+      script(src='scripts/morris.js')
+      script(src='scripts/script.js')

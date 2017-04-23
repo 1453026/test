@@ -1,0 +1,23 @@
+extends layout
+
+mixin item(item)
+    a.col-lg-3.col-md-4.col-sm-6.products-list__item.box-anim(href='/products/'+item.id)
+        img.img-fluid(src=item.imagePath.small, alt=item.name)
+        h3.products-list__item__name= item.name
+        p.products-list__item__price= item.price
+
+block content
+    .container-fluid.landing-md.landing--running
+        h1.display-1.text-center.landing-md__heading
+            | MEN&apos;S
+            br
+            span.orange RUNNING
+            |  SHOES
+    .container-fluid.products-list
+        .container-fluid
+            .row
+                .col-lg-10.offset-lg-1.col-md-12.row.text-center
+                    each item in products
+                        +item(item)
+
+

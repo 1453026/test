@@ -1,0 +1,160 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title User Management
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css')
+    link(rel='stylesheet', href='/stylesheets/admin_style.css', type='text/css')
+    link(rel='stylesheet', href='/stylesheets/admin_effect.css', type='text/css')
+    script(src='https://use.fontawesome.com/ab5f3b016d.js')
+  body
+    #wrapper
+      nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          |  
+          a.navbar-brand(href='/admin')
+            | T
+            span.orange .
+            | R
+            span.orange A
+            | C
+            span.orange E
+            | R
+        ul.nav.navbar-right.top-nav
+          li.dropdown
+            a.dropdown-toggle(href='#', data-toggle='dropdown')
+              i.fa.fa-user
+              |  Hello, Admin
+              b.caret
+            ul.dropdown-menu
+              li
+                a(href='setting.html')
+                  i.fa.fa-fw.fa-cog
+                  |  Setting
+              li.divider
+              li
+                a(href='/')
+                  i.fa.fa-fw.fa-power-off
+                  |  Log Out
+        .collapse.navbar-collapse.navbar-ex1-collapse
+          ul.nav.navbar-nav.side-nav
+            li.sidenav-search
+              .input-group.custom-search-form
+                input.form-control(type='text', placeholder='Search...')
+                |  
+                span.input-group-btn
+                  button.btn.btn-default(type='button')
+                    i.fa.fa-search
+            li.active
+              a(href='/admin')
+                i.fa.fa-fw.fa-dashboard
+                |  &nbsp;Dashboard
+            li
+              a(href='/admin/user_management')
+                i.fa.fa-fw.fa-id-card
+                |  &nbsp;Users
+            li
+              a(href='/admin/products')
+                i.fa.fa-fw.fa-shopping-cart
+                |  &nbsp;Products
+            li
+              a(href='/admin/orders')
+                i.fa.fa-history.fa-fw &nbsp;Orders
+            li
+              a(href='/admin/about')
+                i.fa.fa-address-book.fa-fw &nbsp;About
+      #page-wrapper
+        .container-fluid
+          .row
+            .col-lg-12.col-md-12.col-sm-12.col-xs-12
+              h1.page-header  User Management
+              ol.breadcrumb
+                li.active
+                  i.fa.fa-id-card &nbsp;Users
+          .sidenav-search.col-md-3.pull-right
+            .input-group.custom-search-form
+              input.form-control(type='text', placeholder='Search for names, ID, order ID,...')
+              |  
+              span.input-group-btn
+                button.btn.btn-default(type='button')
+                  i.fa.fa-search
+          table.table.table-config
+            tr
+              th
+              th Full Name
+              th Email
+              th Phone Number
+              th Purchase History
+              th
+            tr
+              td
+                img.img-circle(src='/images/user-icon.png', alt='User Icon', width='48px', height='48px')
+              td John Smith
+              td john.smith@example.com
+              td 0123456789
+              td Product code: cv8f7sd3
+              td
+                button.btn.btn-default(type='button') Delete
+            tr
+              td
+                img.img-circle(src='/images/user-icon.png', alt='User Icon', width='48px', height='48px')
+              td Jane Anderson
+              td jane.anderson@example.com
+              td ...
+              td ...
+              td
+                button.btn.btn-default(type='button') Delete
+            tr
+              td
+                img.img-circle(src='/images/user-icon.png', alt='User Icon', width='48px', height='48px')
+              td Jane Anderson
+              td jane.anderson@example.com
+              td ...
+              td ...
+              td
+                button.btn.btn-default(type='button') Delete
+            tr
+              td
+                img.img-circle(src='/images/user-icon.png', alt='User Icon', width='48px', height='48px')
+              td Jane Anderson
+              td jane.anderson@example.com
+              td ...
+              td ...
+              td
+                button.btn.btn-default(type='button') Delete
+      #footer-menu.text-center.col-lg-12.col-md-12.col-sm-12.col-xs-12
+        p(style='font-size: 15px !important;')
+          | T.Racer
+          sup
+            i.fa.fa-trademark.fa-fw
+          |  is a website created by our team.
+        p
+          | Copyrights
+          sup &copy;
+          |  2017 by G13 - Pete. All rights reserved.
+        ul.list-inline
+          li
+            a#btn-fb.btn-social.btn-outline(href='#')
+              i.fa.fa-fw.fa-facebook
+          li
+            a#btn-gg.btn-social.btn-outline(href='#')
+              i.fa.fa-fw.fa-google-plus
+          li
+            a#btn-tw.btn-social.btn-outline(href='#')
+              i.fa.fa-fw.fa-twitter
+          li
+            a#btn-git.btn-social.btn-outline(href='#')
+              i.fa.fa-fw.fa-github
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    script(src='/javascripts/admin_morris.js')
+
+      

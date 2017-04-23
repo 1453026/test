@@ -1,0 +1,47 @@
+extends layout
+
+block content
+    .container-fluid.landing-sm.landing--gray
+        h1.display-1.text-center.landing-sm__heading
+            | MR. 
+            span.orange=user.fullname
+        .container
+            img.img-thumbnail.profile-img(src='./images/default-avatar.jpg', alt='')
+    .container.border.profile
+        form.row.profile__form(method='POST' action='profile')
+            .col-md-6
+                .form-group.row
+                    label.col-3.col-form-label.text-right(for='name') Full name
+                    .col-9
+                        input#name.form-control.input--form(type='text', placeholder='' name='fullname' value=user.fullname)
+                .form-group.row
+                    label.col-3.col-form-label.text-right(for='phone-no') Phone no.
+                    .col-9
+                        input#phone-no.form-control.input--form(type='tel', placeholder='Your phone number' name='phone' value=user.phone)
+                .form-group.row
+                    label.col-3.col-form-label.text-right(for='email') Email
+                    .col-9
+                        input#email.form-control.input--form(type='email', placeholder='' value=user.email)
+                .text-center
+                    .form-check.form-check-inline
+                        label.form-check-label
+                            input#male.form-check-input(type='radio', name='inlineRadioOptions', value='option1')
+                            |  Male
+                    .form-check.form-check-inline
+                        label.form-check-label
+                            input#female.form-check-input(type='radio', name='inlineRadioOptions', value='option2')
+                            |  Female
+                .text-center.mt-4
+                    button.profile__btn.ease-in(type='submit') Update
+            .col-md-6
+                .form-group.row
+                    label.col-3.col-form-label.text-right(for='name') Current password
+                    .col-9
+                        input#currentPassword.form-control.input--form(type='password' name='curpwd')
+                .form-group.row
+                    label.col-3.col-form-label.text-right(for='phone-no') New password
+                    .col-9
+                        input#newPassword.form-control.input--form(type='password' name='pwd')
+        .text-center.mt-4
+            button.profile__signout.ease-in
+                a(href="/profile/signout") Sign Out

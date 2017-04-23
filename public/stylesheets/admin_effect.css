@@ -1,0 +1,54 @@
+.panel-green:hover,
+.panel-primary:hover,
+.panel-red:hover,
+.panel-yellow:hover {
+    -moz-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s ease-in-out;
+}
+
+#btn-fb:hover,
+#btn-fb:focus,
+#btn-fb:active,
+#btn-fb.active {
+    color: #2e6da4;
+    background: white;
+    border: solid 2px #222;
+}
+
+#btn-gg:hover,
+#btn-gg:focus,
+#btn-gg:active,
+#btn-gg.active {
+    color: #d9534f;
+    background: white;
+    border: solid 2px #222;
+}
+
+#btn-tw:hover,
+#btn-tw:focus,
+#btn-tw:active,
+#btn-tw.active {
+    color: #0084b4;
+    background: white;
+    border: solid 2px #222;
+}
+
+#btn-link:hover,
+#btn-link:focus,
+#btn-link:active,
+#btn-link.active {
+    color: #0077B5;
+    background: white;
+    border: solid 2px #222;
+}
+
+#btn-git:hover,
+#btn-git:focus,
+#btn-git:active,
+#btn-git.active {
+    color: #6e5494;
+    background: white;
+    border: solid 2px #222;
+}

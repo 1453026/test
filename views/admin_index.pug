@@ -1,0 +1,244 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Admin homepage
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css')
+    link(rel='stylesheet', href='/stylesheets/admin_style.css', type='text/css')
+    link(rel='stylesheet', href='/stylesheets/admin_effect.css', type='text/css')
+    script(src='https://use.fontawesome.com/ab5f3b016d.js')
+  body
+    #wrapper
+      nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          |  
+          a.navbar-brand(href='/admin')
+            | T
+            span.orange .
+            | R
+            span.orange A
+            | C
+            span.orange E
+            | R
+        ul.nav.navbar-right.top-nav
+          li.dropdown
+            a.dropdown-toggle(href='#', data-toggle='dropdown')
+              i.fa.fa-user
+              |  Hello, Admin
+              b.caret
+            ul.dropdown-menu
+              li
+                a(href='/admin/setting')
+                  i.fa.fa-fw.fa-cog
+                  |  Setting
+              li.divider
+              li
+                a(href='/')
+                  i.fa.fa-fw.fa-power-off
+                  |  Log Out
+        .collapse.navbar-collapse.navbar-ex1-collapse
+          ul.nav.navbar-nav.side-nav
+            li.sidenav-search
+              .input-group.custom-search-form
+                input.form-control(type='text', placeholder='Search...')
+                |  
+                span.input-group-btn
+                  button.btn.btn-default(type='button')
+                    i.fa.fa-search
+            li.active
+              a(href='/admin')
+                i.fa.fa-fw.fa-dashboard
+                |  &nbsp;Dashboard
+            li
+              a(href='/admin/user_management')
+                i.fa.fa-fw.fa-id-card
+                |  &nbsp;Users
+            li
+              a(href='/admin/products')
+                i.fa.fa-fw.fa-shopping-cart
+                |  &nbsp;Products
+            li
+              a(href='/admin/orders')
+                i.fa.fa-history.fa-fw &nbsp;Orders
+            li
+              a(href='/admin/about')
+                i.fa.fa-address-book.fa-fw &nbsp;About
+      #page-wrapper
+        .container-fluid
+          .row
+            .col-lg-12
+              h1.page-header  DashBoard
+              ol.breadcrumb
+                li.active
+                  i.fa.fa-dashboard &nbsp;Dashboard
+          .row
+            .col-lg-3.col-md-6.col-sm-6.col-xs-12
+              .panel.panel-primary
+                .panel-heading
+                  .row
+                    .col-xs-3
+                      i.fa.fa-dollar.fa-5x
+                    .col-xs-9.text-right
+                      .huge 365.75
+                      div Profit
+                a(href='/admin/orders')
+                  .panel-footer
+                    span.pull-left View Details
+                    span.pull-right
+                      i.fa.fa-arrow-circle-right
+                    .clearfix
+            .col-lg-3.col-md-6.col-sm-6.col-xs-12
+              .panel.panel-green
+                .panel-heading
+                  .row
+                    .col-xs-3
+                      i.fa.fa-rocket.fa-5x
+                    .col-xs-9.text-right
+                      .huge 9
+                      div New Products
+                a(href='/admin/products')
+                  .panel-footer
+                    span.pull-left View Details
+                    span.pull-right
+                      i.fa.fa-arrow-circle-right
+                    .clearfix
+            .col-lg-3.col-md-6.col-sm-6.col-xs-12
+              .panel.panel-red
+                .panel-heading
+                  .row
+                    .col-xs-3
+                      i.fa.fa-shopping-cart.fa-5x
+                    .col-xs-9.text-right
+                      .huge 40
+                      div Sales
+                a(href='/admin/orders')
+                  .panel-footer
+                    span.pull-left View Details
+                    span.pull-right
+                      i.fa.fa-arrow-circle-right
+                    .clearfix
+            .col-lg-3.col-md-6.col-sm-6.col-xs-12
+              .panel.panel-yellow
+                .panel-heading
+                  .row
+                    .col-xs-3
+                      i.fa.fa-group.fa-5x
+                    .col-xs-9.text-right
+                      .huge 69
+                      div Users
+                a(href='/admin/user_management')
+                  .panel-footer
+                    span.pull-left View Details
+                    span.pull-right
+                      i.fa.fa-arrow-circle-right
+                    .clearfix
+          .row
+            .col-lg-12.col-md-12.col-sm-12.col-xs-12
+              .panel.panel-default
+                .panel-heading
+                  h3.panel-title
+                    i.fa.fa-bar-chart-o.fa-fw
+                    |  Area Chart
+                .panel-body
+                  #morris-area-chart
+          .row
+            .col-lg-6.col-md-6.col-sm-12.col-xs-12
+              .panel.panel-default
+                .panel-heading
+                  h3.panel-title
+                    i.fa.fa-pie-chart.fa-fw
+                    |  Donut Chart
+                .panel-body
+                  #morris-donut-chart
+                .panel-footer
+                  .text-right
+                    a(href='/admin/product')
+                      | View Details
+                      i.fa.fa-arrow-circle-right
+            .col-lg-6.col-md-6.col-sm-12.col-xs-12
+              .panel.panel-default
+                .panel-heading
+                  h3.panel-title
+                    i.fa.fa-money.fa-fw
+                    |  Transactions Panel
+                .panel-body
+                  .table-responsive
+                    table.table.table-bordered.table-hover.table-striped
+                      thead
+                        tr
+                          th Order #
+                          th Order Date
+                          th Order Time
+                          th Amount (USD)
+                      tbody
+                        tr
+                          td 3326
+                          td 10/21/2013
+                          td 3:29 PM
+                          td $321.33
+                        tr
+                          td 3325
+                          td 10/21/2013
+                          td 3:20 PM
+                          td $234.34
+                        tr
+                          td 3324
+                          td 10/21/2013
+                          td 3:03 PM
+                          td $724.17
+                        tr
+                          td 3323
+                          td 10/21/2013
+                          td 3:00 PM
+                          td $23.71
+                        tr
+                          td 3322
+                          td 10/21/2013
+                          td 2:49 PM
+                          td $8345.23
+                        tr
+                          td 3321
+                          td 10/21/2013
+                          td 2:23 PM
+                          td $245.12
+                .panel-footer
+                  .text-right
+                    a(href='history.html')
+                      | View All Transactions
+                      i.fa.fa-arrow-circle-right
+    #footer-menu.text-center.col-lg-12.col-md-12.col-sm-12.col-xs-12
+      p(style='font-size: 15px !important;')
+        | T.Racer
+        sup
+          i.fa.fa-trademark.fa-fw
+        |  is a website created by our team.
+      p
+        | Copyrights
+        sup &copy;
+        |  2017 by G13 - Pete. All rights reserved.
+      ul.list-inline
+        li
+          a#btn-fb.btn-social.btn-outline(href='#')
+            i.fa.fa-fw.fa-facebook
+        li
+          a#btn-gg.btn-social.btn-outline(href='#')
+            i.fa.fa-fw.fa-google-plus
+        li
+          a#btn-tw.btn-social.btn-outline(href='#')
+            i.fa.fa-fw.fa-twitter
+        li
+          a#btn-git.btn-social.btn-outline(href='#')
+            i.fa.fa-fw.fa-github
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js')
+    script(src='/javascripts/admin_morris.js')

@@ -1,0 +1,25 @@
+extends layout
+block nav
+block content
+    .container-fluid.sign
+        .form.pt-5
+            a.back(href='/') &lt;
+            .container.text-center
+                h1.form__heading
+                    | SIGN
+                    span.orange IN
+                form(method='post' action='signin' name='signin')
+                    .form-group
+                        input.input.input--sign(type='email', placeholder='YOUR EMAIL ADDRESS' name='email')
+                    .form-group
+                        input.input.input--sign(type='password', placeholder='YOUR PASSWORD' name='password')
+                    |
+                    button(type='submit') SIGN IN
+                    br
+                    |
+                    a(href='./signup') Don&apos;t have an account?
+block footer
+block script
+    script(src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous")
+    script(src='https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js')
+    script(src='/javascripts/form-validation.js')

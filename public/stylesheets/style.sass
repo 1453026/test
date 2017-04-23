@@ -1,0 +1,794 @@
+/*-- Fonts --
+
+@font-face
+  font-family: Myriad
+  src: url(../fonts/Myriad.OTF)
+
+@font-face
+  font-family: Myriad-Bold
+  src: url(../fonts/Myriad-Bold.OTF)
+
+@font-face
+  font-family: Anurati
+  src: url(../fonts/Anurati.otf)
+
+@font-face
+  font-family: Etna
+  src: url(../fonts/Etna.otf)
+
+@font-face
+  font-family: Langdon
+  src: url(../fonts/Langdon.otf)
+
+/*-- /Fonts --
+
+/*-- Color --
+
+.orange
+  color: #FF3D00
+
+.green
+  color: #96E621
+
+.white
+  color: #FAFAFA
+
+/*-- /Color --
+
+/*-- * --
+
+nav, h1, h2, h3, h4, h5, h6, a, button, label, option, select, footer span
+  font-family: Myriad-Bold, 'Open Sans', sans-serif
+
+p, li
+  color: #616161
+  font-family: Myriad, 'Open Sans', sans-serif
+
+i
+  color: #FF3D00
+  margin-right: 10px
+
+small
+  font-size: 16px
+
+a:hover
+  text-decoration: none
+
+.card-block
+  background-color: #FF3D00
+
+.list-group-item a
+  color: #424242
+
+.dropdown-menu-center
+  right: auto
+  left: 50%
+  transform: translate(-50%, 0)
+  text-align: center
+
+.border
+  border: 2px solid #E0E0E0
+
+/*-- /* --
+
+/*-- Button --
+
+button
+  &:focus
+    outline: 0
+  &[type=submit]
+    background-color: #FF3D00
+    border: #FFF solid 3px
+    border-radius: 10em
+    color: #FFF
+    margin: auto
+    padding: 20px 10px 20px 10px
+    width: 150px
+    &:hover
+      cursor: pointer
+    &:not(.profile__btn):hover
+      background-color: #FFF
+      color: #FF3D00
+
+/*-- /Button --
+
+/*--  Carousel--
+
+.carousel-item
+  background-color: #F5F5F6
+  height: 70vh
+
+.carousel-caption
+  top: auto
+  bottom: 38%
+  display: table-cell
+  > *
+    display: inline-block
+    vertical-align: middle
+
+.carousel-brand
+  font-weight: bolder
+
+.carousel-item__link
+  padding: 10px 20px
+  color: #FFF
+  border: 3px solid #FFF
+  background-color: rgba(0, 0, 0, 0.5)
+  font-size: 1.5rem
+  font-weight: bolder
+  &:hover
+    color: inherit
+    background-color: rgba(0, 0, 0, 0.9)
+
+/*-- /Carousel --
+
+/*-- Catergories --
+
+.catergory
+  background-color: #F5F5F6
+
+.catergory__item
+  color: #424242
+  &:hover
+    color: #212121
+
+.catergory-description
+  max-width: 700px
+
+/*-- /Catergoies --
+
+/*-- Checkout --
+
+.checkout__item
+  padding: 20px 10px
+  background-color: #F5F5F6
+
+.checkout__price
+  font-size: 1.5rem
+
+.checkout__btn
+  background-color: #FF3D00
+  border: none
+  color: #FFF
+  font-size: 1.5rem
+  padding: 10px
+  width: 100%
+  &:hover
+    cursor: pointer
+
+/*-- /Checkout --
+
+/*-- /Error --
+label.error
+  color: #FFF
+  display: block
+  font-size: 1.2rem
+
+/*-- /Error --
+
+/*-- /Footer --
+
+footer
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../images/Leaves-Pattern.jpg) center center fixed
+  min-height: 40vh
+  padding-top: 5vh
+  ul
+    list-style-type: none
+    padding: 0
+  a, li
+    color: #FFF
+    font-size: 1.2rem
+    font-weight: 900
+    letter-spacing: 1px
+    line-height: 2.5rem
+  a:hover
+    color: #FF3D00
+    text-decoration: none
+
+.phone-no
+  font-size: 2rem
+
+.footer-logo
+  color: #FFF
+  font-family: Anurati, 'Open Sans', sans-serif
+  font-size: 4rem
+
+/*-- /Footer --
+
+/*-- Gallery --
+
+.feature-products
+  background-color: #F5F5F6
+
+.feature-products__item
+  position: relative
+  height: 60vh
+  border: 3px solid #FFF
+  &:nth-of-type(1)
+    background: url('../images/Feature Products/Kyrie-Irving.jpg') center center
+    background-size: cover
+  &:nth-of-type(2)
+    background: url('../images/Feature Products/Nike-Kyrie-2-bg.jpg') center center
+    background-size: cover
+  &:nth-of-type(3)
+    height: 100vh
+    background: url('../images/Feature Products/NIKE-ZOOM-KD-9-BATTLE-GREY-bg.jpg') center center
+    background-size: cover
+
+/*-- /Gallery --
+
+/*-- Information --
+
+.information
+  min-height: 100vh
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/Leaves-Pattern.jpg) center center fixed
+
+.information__form
+  max-width: 800px
+  margin: 0 auto
+  .form-group label
+    color: #FFF
+    font-size: 1.5rem
+
+select.form-control:not([size]):not([multiple])
+  height: inherit
+
+/*-- /Information --
+
+/*-- Input --
+
+input
+  outline: none
+
+.input
+  font-family: inherit
+  font-size: 100%
+  &:focus
+    background-color: #FFF
+    border-color: #FF3D00
+
+.input--sign
+  outline: none
+  background: none
+  color: #FFF
+  border: solid 3px #CCC
+  font-family: inherit
+  font-size: 100%
+  padding: 20px 10px 20px 32px
+  width: 50%
+  &:focus
+    color: #424242
+
+.input--search
+  background: #EDEDED url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center
+  border: solid 1px #CCC
+  padding: 12px 10px 12px 32px
+  width: 10vw
+
+.input--form
+  padding: 10px 6px 10px 20px
+  border: solid 3px #CCC
+  &:focus
+    border-color: #FF3D00
+    background: #FFF
+
+.input--form--dark
+  color: #FFF
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))
+
+/*-- /Input --
+
+/*-- Landing --
+
+.landing-lg
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/Landing-bg.jpg) center center
+  height: 100vh
+  border-bottom: 3px solid #FFF
+
+.landing-lg__heading
+  color: #FFF
+  font-weight: bolder
+  padding-top: 40vh
+
+.landing-md
+  height: 70vh
+
+.landing-md__heading
+  color: #FFF
+  font-weight: bolder
+  padding-top: 25vh
+
+.landing-sm
+  height: 50vh
+
+.landing-sm__heading
+  color: #FFF
+  font-weight: bolder
+  padding-top: 20vh
+
+.landing--gray
+  background-color: #424242
+
+.landing--running
+  border-bottom: 3px solid #FFF
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url(../images/Collections/Running/bg.jpg) center center
+  background-size: cover
+
+.landing--basketball
+  border-bottom: 3px solid #FFF
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url(../images/Collections/Basketball/bg.jpg)
+  background-size: cover
+
+.landing--football
+  border-bottom: 3px solid #FFF
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url(../images/Collections/Football/bg.jpg) center center
+  background-size: cover
+
+.landing--sportswear
+  border-bottom: 3px solid #FFF
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url(../images/Collections/Sportswear/bg.jpg) center center
+  background-size: cover
+
+.landing--training
+  border-bottom: 3px solid #FFF
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url(../images/Collections/Training/bg.jpg) center center
+  background-size: cover
+
+.landing--jordan
+  border-bottom: 3px solid #FFF
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url(../images/Collections/Jordan/bg.jpg) center center
+  background-size: cover
+
+/*-- /Landing --
+
+/*-- Map --
+
+.map
+  border-bottom: 3px solid #FFF
+  border-top: 3px solid #FFF
+  height: 80vh
+
+/*-- /Map --
+
+/*-- Navigation Bar --
+
+.navbar
+  background: none
+  min-height: 35px
+
+.nav-link
+  color: #FFF
+  font-size: 1.5rem
+  font-weight: bold
+  line-height: 2rem
+  padding-bottom: 20px !important
+  padding-top: 20px !important
+  text-transform: uppercase
+  &:hover, &.active
+    color: #FF3D00
+
+.nav-item
+  margin-right: 30px
+
+.navbar-nav
+  margin-right: 50px
+
+.navbar-brand
+  color: #FFF
+  font-family: Langdon, 'Open Sans', sans-serif
+  font-size: 4rem
+  margin: 0 20px 0 50px
+  padding-top: 0
+  &:hover
+    color: #FFF
+
+.navbar-nav
+  margin-right: 10vw
+
+.navbar-toggler
+  color: #FFF
+  font-size: 2rem
+  position: absolute
+  top: 30px
+  z-index: 2
+
+.navbar__cart
+  position: absolute
+  right: 2%
+  max-width: 100px
+  color: #999FAF
+  border: 3px solid #999FAF
+
+.fa-shopping-cart
+  color: #999FAF
+
+.fa-remove
+  color: #F44336
+  right: -2px
+  position: absolute
+
+.navbar__cart:hover
+  background: #FF3D00 !important
+  border: 3px solid #FF3D00
+  color: #FFF
+
+.navbar__cart__img
+  max-width: 100px
+  max-height: 100px
+
+.navbar__cart__btn
+  padding: 12px 18px 12px 18px
+  border: none
+  background: none
+  &:hover i
+    color: #FFF
+
+.navbar__cart__dropdown-menu
+  right: -2px
+  padding: 0
+  border: none
+  border-radius: 0
+  background-color: #F5F5F6
+
+.navbar__cart__dropdown-item
+  padding: 3px 0.7em 10px 0.7em
+  border-bottom: 1px solid #E0E0E0
+  background-color: #F5F5F6
+  position: relative
+  &:hover
+    cursor: pointer
+
+.navbar__cart__checkout
+  padding: 10px 0
+  background-color: #F4511E
+  &:hover
+    cursor: pointer
+    color: #FFF
+    background-color: #FF3D00
+
+.helper
+  display: inline-block
+  height: 100%
+  vertical-align: middle
+
+/*-- /Navigation Bar --
+
+/*-- Newsletter --
+
+.newsletter
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../images/Wood-Pattern.jpg) center center
+  background-size: cover
+  border-bottom: 3px solid #FFF
+  min-height: 30vh
+  padding: 5vh 0 5vh 0
+
+/*-- /Newsletter --
+
+/*-- Product --
+
+.product-detail__price
+  margin-top: 10px
+  font-size: 1.5rem
+  font-weight: bold
+
+.product-detail__button
+  width: 100%
+  height: 50px
+  color: #FFF
+  border: none
+  border-radius: 4px
+  font-family: Myriad, 'Open Sans', sans-serif
+  font-weight: bold
+  &:hover
+    cursor: pointer
+  a
+    color: #FFF
+
+.product-detail__button--orange
+  background-color: #FF5722
+
+.product-detail__button--gray
+  background-color: #BDBDBD
+
+.products-list
+  padding-top: 5vh
+  padding-bottom: 5vh
+  background-color: #F5F5F6
+
+.products-list__item
+  color: #424242
+  &:hover, &:focus
+    text-decoration: none
+    color: #212121
+
+.products-list__item__price
+  font-size: 1.5rem
+  font-weight: 500
+
+/*-- /Product --
+
+/*-- Profile --
+
+.profile
+  margin-top: 100px
+  margin-bottom: 60px
+  padding: 30px
+  z-index: 0
+
+.profile__signout
+  background-color: #F44336
+  border: #E0E0E0 solid 3px
+  border-radius: 10em
+  padding: 20px 10px 20px 10px
+  &:hover
+    cursor: pointer
+  a
+    color: #FFF
+    text-decoration: none
+
+.profile-img
+  height: 200px
+  width: 200px
+
+/*-- /Profile --
+
+/*-- Quote --
+
+.quote
+  border-bottom: 3px solid #FFF
+  position: relative
+
+.quote__item
+  &:nth-of-type(1)
+    height: 50vh
+    position: relative
+    > h4
+      font-family: Etna, 'Open Sans', sans-serif
+      left: 15%
+      position: absolute
+      top: 30%
+      z-index: 2
+  &:nth-of-type(2)
+    background: url(../images/Adidas-Wallpaper.jpg) center center
+    background-size: cover
+    height: 50vh
+  &:nth-of-type(3)
+    background: url(../images/Nike-Wallpaper.jpg) center center
+    background-size: cover
+    height: 60vh
+  &:nth-of-type(4)
+    background-color: #FF3D00
+    height: 60vh
+    position: relative
+    h3
+      color: #FFF
+      font-family: Etna, 'Open Sans', sans-serif
+      position: absolute
+      bottom: 15%
+      left: 8%
+    span
+      display: inline-block
+      font-family: Etna, 'Open Sans', sans-serif
+      position: absolute
+      bottom: 15%
+      right: 8%
+      margin-bottom: 0.5rem
+
+.quote__feature-product
+  background-color: #F5F5F6
+  position: absolute
+  top: 30vh
+  left: 38%
+  height: inherit
+  width: 40vw
+  z-index: 1
+
+.quote__feature-product__proceed
+  font-family: Etna, 'Open Sans', sans-serif
+  font-size: 80px
+  color: #445561
+  position: absolute
+  bottom: 5%
+  right: 5%
+  &:hover
+    color: #212121
+    text-decoration: none
+
+/*-- /Quote --
+
+/*-- Signup - Signin --
+.sign
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/Leaves-Pattern.jpg) center center fixed
+  background-size: cover
+
+.form
+  height: 100vh
+
+.form__heading
+  color: #FFF
+  font-size: 4rem
+
+.back
+  color: #FFF
+  font-family: Etna, "Open Sans", sans-serif
+  font-size: 5rem
+  font-weight: bolder
+  position: absolute
+  top: 20px
+  left: 40px
+  &:hover, &:focus
+    color: #FF3D00
+    text-decoration: none
+/*-- /Signup - Signin --
+
+@media screen and (max-width: 1200px)
+  .products-list__item__name
+    font-size: 1.5rem
+
+@media screen and (max-width: 992px)
+  .navbar-brand
+    margin-left: 100px
+  .navbar-nav
+    margin: 0 auto
+  .side-collapse
+    background-color: rgba(0, 0, 0, 0.9)
+    -webkit-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5)
+    -moz-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5)
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5)
+    top: 0
+    bottom: 0
+    left: 0
+    padding-top: 10vh
+    width: 40vw
+    position: fixed
+    overflow: hidden
+    text-align: center
+    transition: all .4s
+    &.in
+      width: 0
+  .input--search
+    display: block
+    margin-left: 5vw
+    width: 22vw
+
+@media screen and (max-width: 768px)
+  .carousel-brand
+    font-size: 5rem
+
+@media screen and (max-width: 576px)
+  .carousel-item
+    height: 75vh
+  .carousel-brand
+    font-size: 3rem
+  .landing-sm__heading, .landing-md__heading, .landing-lg__heading
+    font-size: 4rem
+
+/*--404 Page--
+
+#html-404
+  box-sizing: border-box
+  &:after, &:before
+    box-sizing: border-box
+  background: #1A1A1A
+  font-family: Myriad-Bold, 'Open Sans', sans-serif
+  overflow: hidden
+  color: #1A1A1A
+  &:after
+    content: '404'
+    position: absolute
+    font-size: 100px
+    left: 0
+    right: 0
+    text-align: center
+    bottom: 340px
+    font-weight: 600
+    z-index: 200
+  &:before
+    content: 'Page Not Found'
+    font-size: 30px
+    font-weight: 400
+    bottom: 330px
+    position: absolute
+    left: 0
+    right: 0
+    text-align: center
+    z-index: 200
+
+.head-404
+  display: block
+  width: 35px
+  height: 140px
+  background: #646464
+  border-bottom: 10px solid #333
+  margin: auto
+  -webkit-transform-origin: 50% 100%
+  transform-origin: 50% 100%
+  -webkit-animation: 5s find linear infinite
+  animation: 5s find linear infinite
+  border-bottom-left-radius: 4px
+  border-bottom-right-radius: 4px
+  position: absolute
+  left: 0
+  right: 0
+  bottom: -5px
+  &:after
+    content: ''
+    position: absolute
+    border-style: solid
+    border-width: 25px 25px 0 25px
+    border-color: #333 transparent transparent transparent
+    width: 85px
+    left: -25px
+    top: 0
+    box-shadow: 0px -10px 0 #FEAF33
+  &:before
+    content: ''
+    position: absolute
+    width: 8px
+    height: 15px
+    background: #FEAF33
+    left: 0
+    right: 0
+    margin: auto
+    top: 40px
+    border-radius: 6px
+    box-shadow: 0 0 1px 2px #333
+
+.meta-404
+  display: block
+  width: 250px
+  height: 200px
+  background: #FFFEE2
+  border-radius: 50%
+  position: absolute
+  left: -107px
+  bottom: 270px
+  margin: auto
+  text-align: center
+  color: #333
+  font-size: 90px
+  line-height: 200px
+  font-weight: 600
+  &:after
+    content: ''
+    position: absolute
+    border-style: solid
+    border-width: 190px 75px 0 75px
+    border-color: rgba(255, 254, 226, 0.3) transparent transparent transparent
+    width: 230px
+    left: 10px
+    top: 100%
+    -webkit-transform: translateY(-60px)
+    transform: translateY(-60px)
+
+@-webkit-keyframes find
+  25%
+    -webkit-transform: rotate(25deg)
+    transform: rotate(25deg)
+
+  0%,
+  50%,
+  100%
+    -webkit-transform: rotate(0deg)
+    transform: rotate(0deg)
+
+  75%
+    -webkit-transform: rotate(-25deg)
+    transform: rotate(-25deg)
+
+@keyframes find
+  25%
+    -webkit-transform: rotate(25deg)
+    transform: rotate(25deg)
+
+  0%,
+  50%,
+  100%
+    -webkit-transform: rotate(0deg)
+    transform: rotate(0deg)
+
+  75%
+    -webkit-transform: rotate(-25deg)
+    transform: rotate(-25deg)
+
+/*--/404 page--

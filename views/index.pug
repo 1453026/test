@@ -1,0 +1,34 @@
+extends layout
+
+block content
+    .container-fluid.landing-lg
+        h1.display-1.text-center.landing-lg__heading#slogan
+            | LIFE IS A SPORT
+            br
+            span.orange MAKE IT COUNT
+    .row.m-0.quote
+        .col-md-7.quote__item
+            h4.display-3 JOIN THE SNEAKERS REVOLUTION
+        .col-md-5.quote__item
+        .col-md-6.quote__item
+        .col-md-6.quote__item
+            h3.display-4.orange NIKE FLYKNIT RACER
+            |
+            span.display-4 $150
+        .text-center.hidden-md-down.quote__feature-product.zoom-in.ease-in
+            img(src='./images/flyknit-racer-unisex-running-shoe-small.jpg', alt='flyknit racer unisex running shoe')
+            |
+            a.quote__feature-product__proceed(href='./product.html') &gt;
+    .container-fluid.newsletter
+        .container
+            .row
+                .col-lg-5
+                    h4.display-4.white Newsletter
+                    p.mt-3.white
+                        | Subscribe to the T.Racer mailing list to receive updates on new arrivals, special offers and other discount information.
+                .col-lg-7
+                    form.form-inline.mt-lg-5(id='subscribe')
+                        input.input.input--sign(placeholder='YOUR EMAIL ADDRESS' name='subscribeEmail')
+                        |
+                        button.ease-in(type='submit' name='submit') SUBSCRIBE
+
