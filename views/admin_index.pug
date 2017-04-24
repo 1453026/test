@@ -67,10 +67,12 @@ html(lang='en')
                 |  &nbsp;Products
             li
               a(href='/admin/orders')
-                i.fa.fa-history.fa-fw &nbsp;Orders
+                i.fa.fa-history.fa-fw 
+                |  &nbsp;Orders
             li
               a(href='/admin/about')
-                i.fa.fa-address-book.fa-fw &nbsp;About
+                i.fa.fa-address-book.fa-fw 
+                |  &nbsp;About
       #page-wrapper
         .container-fluid
           .row
@@ -160,7 +162,7 @@ html(lang='en')
                   #morris-donut-chart
                 .panel-footer
                   .text-right
-                    a(href='/admin/product')
+                    a(href='/admin/products')
                       | View Details
                       i.fa.fa-arrow-circle-right
             .col-lg-6.col-md-6.col-sm-12.col-xs-12
@@ -211,7 +213,7 @@ html(lang='en')
                           td $245.12
                 .panel-footer
                   .text-right
-                    a(href='history.html')
+                    a(href='/admin/orders')
                       | View All Transactions
                       i.fa.fa-arrow-circle-right
     #footer-menu.text-center.col-lg-12.col-md-12.col-sm-12.col-xs-12

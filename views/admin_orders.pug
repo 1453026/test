@@ -53,7 +53,7 @@ html(lang='en')
                 span.input-group-btn
                   button.btn.btn-default(type='button')
                     i.fa.fa-search
-            li.active
+            li
               a(href='/admin')
                 i.fa.fa-fw.fa-dashboard
                 |  &nbsp;Dashboard
@@ -65,20 +65,22 @@ html(lang='en')
               a(href='/admin/products')
                 i.fa.fa-fw.fa-shopping-cart
                 |  &nbsp;Products
-            li
+            li.active
               a(href='/admin/orders')
-                i.fa.fa-history.fa-fw &nbsp;Orders
+                i.fa.fa-history.fa-fw 
+                |  &nbsp;Orders
             li
               a(href='/admin/about')
-                i.fa.fa-address-book.fa-fw &nbsp;About
+                i.fa.fa-address-book.fa-fw 
+                |  &nbsp;About
       #page-wrapper
         .container-fluid
           .row
             .col-lg-12.col-md-12.col-sm-12.col-xs-12
-              h1.page-header  History
+              h1.page-header  Orders
               ol.breadcrumb
                 li.active
-                  i.fa.fa-history.fa-fw &nbsp;History
+                  i.fa.fa-history.fa-fw &nbsp;Orders
           .row
             .col-md-6.col-sm-6.col-xs-6
               h3 Profit:

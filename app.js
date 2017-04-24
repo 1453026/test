@@ -8,8 +8,12 @@ var sassMiddleware = require('node-sass-middleware');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
+var fs = require('fs');
+var paypal = require('paypal-rest-sdk');
 
 var index = require('./routes/index');
+var users = require('./routes/users');
+var execute = require('./routes/execute');
 var products = require('./routes/products');
 var collections = require('./routes/collections');
 var signup = require('./routes/signup');
@@ -17,6 +21,7 @@ var signin = require('./routes/signin');
 var profile = require('./routes/profile');
 
 var app = express();
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://tamtran:123@ds161950.mlab.com:61950/shopping');
 
 // view engine setup
@@ -37,6 +42,16 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+try {
+    var configJSON = fs.readFileSync(__dirname + "/config.json");
+    var config = JSON.parse(configJSON.toString());
+} catch (e) {
+    console.error('File config.json not found or is invalid: ' + e.message);
+    process.exit(1);
+}
+paypal.configure(config.api);
+
 app.use(session({
     secret: 'CLC14-Web-G13-Pete',
     resave: true,
@@ -52,6 +67,8 @@ app.use(function(req, res, next) {
 });
 
 app.use('/', index);
+app.use('/users', users);
+app.get('/execute', execute);
 app.use('/products', products);
 app.use('/collections', collections);
 app.use('/signup', signup);

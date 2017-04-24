@@ -53,11 +53,11 @@ html(lang='en')
                 span.input-group-btn
                   button.btn.btn-default(type='button')
                     i.fa.fa-search
-            li.active
+            li
               a(href='/admin')
                 i.fa.fa-fw.fa-dashboard
                 |  &nbsp;Dashboard
-            li
+            li.active
               a(href='/admin/user_management')
                 i.fa.fa-fw.fa-id-card
                 |  &nbsp;Users
@@ -94,42 +94,16 @@ html(lang='en')
               th Phone Number
               th Purchase History
               th
-            tr
-              td
-                img.img-circle(src='/images/user-icon.png', alt='User Icon', width='48px', height='48px')
-              td John Smith
-              td john.smith@example.com
-              td 0123456789
-              td Product code: cv8f7sd3
-              td
-                button.btn.btn-default(type='button') Delete
-            tr
-              td
-                img.img-circle(src='/images/user-icon.png', alt='User Icon', width='48px', height='48px')
-              td Jane Anderson
-              td jane.anderson@example.com
-              td ...
-              td ...
-              td
-                button.btn.btn-default(type='button') Delete
-            tr
-              td
-                img.img-circle(src='/images/user-icon.png', alt='User Icon', width='48px', height='48px')
-              td Jane Anderson
-              td jane.anderson@example.com
-              td ...
-              td ...
-              td
-                button.btn.btn-default(type='button') Delete
-            tr
-              td
-                img.img-circle(src='/images/user-icon.png', alt='User Icon', width='48px', height='48px')
-              td Jane Anderson
-              td jane.anderson@example.com
-              td ...
-              td ...
-              td
-                button.btn.btn-default(type='button') Delete
+            each user in users
+              tr
+                td
+                  img.img-circle(src='/images/user-icon.png', alt='User Icon', width='48px', height='48px')
+                td #{user.fullname}
+                td #{user.email}
+                td #{user.phone}
+                td 
+                td
+                  button.btn.btn-default(type='button') Delete
       #footer-menu.text-center.col-lg-12.col-md-12.col-sm-12.col-xs-12
         p(style='font-size: 15px !important;')
           | T.Racer

@@ -10,6 +10,9 @@ router.get('/', function(req, res) {
 /* POST signin page */
 router.post('/', function(req, res, next) {
     if (req.body.email && req.body.password) {
+        if (req.body.email === 'admin@mail.com' && req.body.password === 'admin') {
+            res.redirect('/admin');
+        }
         //using the function that was created in the user.js file
         User.authenticate(req.body.email, req.body.password, function(error, user) {
             if (error || !user) {

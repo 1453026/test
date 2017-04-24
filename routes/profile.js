@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
+var bcrypt = require('bcrypt');
 
 /* GET homepage */
 router.get('/', function(req, res, next) {
@@ -35,13 +36,26 @@ router.get('/signout', function(req, res, next) {
 router.post('/', function(req, res, next) {
     var newfullname = req.body.fullname;
     var newphone = req.body.phone;
+    var curpassword = req.body.curpwd;
+    var newpassword = req.body.newpwd;
     User.findByIdAndUpdate(req.session.userID, { fullname: newfullname, phone: newphone }, { 'new': true }, function(err, user) {
         if (err) {
             console.log(err);
             return err;
         } else {
-            console.log(newpassword);
-            res.redirect('/profile');
+            if (curpassword) {
+                bcrypt.compare(curpassword, user.password, function(error, result) {
+                    if (result === true) {
+                        User.findById(req.session.userID, function(err, user) {
+                            user.password = newpassword;
+                            console.log(user.password);
+                            user.save();
+                        });
+                    }
+                });
+            } else {
+                res.redirect('/profile');
+            }
         }
     });
 });

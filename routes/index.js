@@ -5,6 +5,8 @@ var Product = require('../models/product');
 var Bill = require('../models/bill');
 var Cart = require('../models/cart');
 var Subscription = require('../models/subscription');
+var paypal = require('paypal-rest-sdk');
+var User = require('../models/user');
 
 // create reusable transporter object using the default SMTP transport
 var transporter = nodemailer.createTransport({
@@ -22,64 +24,110 @@ var mailOptions = {
 };
 
 /* GET home page. */
-router.get('/', function (req, res) {
+router.get('/', function(req, res) {
     var session = req.session;
-    res.render('index', {title: 'T.RACER', session: session});
+    res.render('index', { title: 'T.RACER', session: session });
 });
 
-router.get('/contact', function (req, res) {
+router.get('/contact', function(req, res) {
     var session = req.session;
-    res.render('contact', {title: 'T.RACER', session: session});
+    res.render('contact', { title: 'T.RACER', session: session });
 });
 
-router.get('/checkout', function (req, res) {
+router.get('/checkout', function(req, res) {
     var session = req.session;
-    res.render('checkout', {title: 'T.RACER', session: session});
+    res.render('checkout', { title: 'T.RACER', session: session });
 });
 
-router.get('/checkout/proceed', function (req, res) {
+router.get('/checkout/proceed', function(req, res) {
     var session = req.session;
     if (session.cart) {
         var bill = {
             user: req.session.userID,
             detail: session.cart
         };
-        Bill.create(bill, function (error, bill) {
+        Bill.create(bill, function(error, bill) {
             if (error) {
                 res.send(error);
             }
             if (bill) {
-                req.session.cart = new Cart({items: {}});
-                res.redirect('/');
+                var payment = {
+                    "intent": "sale",
+                    "payer": {
+                        "payment_method": "paypal"
+                    },
+                    "redirect_urls": {
+                        "return_url": "/execute",
+                        "cancel_url": "/"
+                    },
+                    "transactions": [{
+                        "amount": {
+                            "total": bill.detail.totalPrice,
+                            "currency": "USD"
+                        },
+                        "description": 'Payment'
+                    }]
+                };
+                //payment
+                paypal.payment.create(payment, function(error, payment) {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        if (payment.payer.payment_method === 'paypal') {
+                            req.session.paymentId = payment.id;
+                            var redirectUrl;
+                            for (var i = 0; i < payment.links.length; i++) {
+                                var link = payment.links[i];
+                                if (link.method === 'REDIRECT') {
+                                    redirectUrl = link.href;
+                                }
+                            }
+                            res.redirect(redirectUrl);
+                        }
+                    }
+                });
+                req.session.cart = new Cart({ items: {} });
             }
         });
     }
 });
 
-router.post('/search', function (req, res) {
-    var searchPhrase = req.body.value;
+var searchPhrase = '';
+
+router.post('/search', function(req, res) {
+    searchPhrase = req.body.value;
+    res.redirect('search/?page=0');
+});
+
+router.get('/search', function(req, res) {
     var session = req.session;
-    Product.find({'name': {"$regex": searchPhrase, "$options": "i"}}, function (err, products) {
-        if (err) res.send(err);
-        if (products) {
-            res.render('search-result', {title: 'Search Result', products: products, session: session});
+    Product.paginate({ 'name': { "$regex": searchPhrase, "$options": "i" } }, {
+        offset: parseInt(req.query.page) * 10,
+        limit: 10
+    }, function(err, result) {
+        if (result) {
+            res.render('search-result', {
+                title: 'Search Result',
+                products: result.docs,
+                pages: result.total / 10,
+                session: session
+            });
         }
     });
 });
 
-router.post('/subscribe', function (req, res) {
+router.post('/subscribe', function(req, res) {
     mailOptions.to = req.body.subscribeEmail;
-    Subscription.findOne({'email': req.body.subscribeEmail}, function (err, email) {
+    Subscription.findOne({ 'email': req.body.subscribeEmail }, function(err, email) {
         if (err) res.send(err);
         if (email) {
-            mailOptions.text = 'We recognised this email has already been subscribed.\nThank you again for subscribing\nWe will make sure this email will receive our latest letters\nT-RACER';
-            transporter.sendMail(mailOptions, function (error) {
+            mailOptions.text = 'Dear,\n\nWe recognised this email has already been subscribed.\n\nThank you again for subscribing\n\nWe will make sure this email will receive our latest letters\n\nT-RACER';
+            transporter.sendMail(mailOptions, function(error) {
                 if (error) {
                     return console.log(error);
                 }
             });
-        }
-        else {
+        } else {
             var subscription = {
                 email: req.body.subscribeEmail
             };
@@ -89,8 +137,8 @@ router.post('/subscribe', function (req, res) {
                     res.send(error);
                 }
             });
-            mailOptions.text = 'Thank you for subscribing to our shop\'s newsletter\nWe will keep you up to date with products and sales information.\nIf you need anything, feel free to contact us via this email address\nT.RACER';
-            transporter.sendMail(mailOptions, function (error) {
+            mailOptions.text = 'Thank you for subscribing to our shop\'s newsletter\n\nWe will keep you up to date with products and sales information.\n\nIf you need anything, feel free to contact us via this email address\n\nT.RACER';
+            transporter.sendMail(mailOptions, function(error) {
                 if (error) {
                     return console.log(error);
                 }

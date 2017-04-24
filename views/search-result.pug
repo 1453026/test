@@ -14,10 +14,13 @@ block content
             span.orange RUNNING
             |  SHOES
     .container-fluid.products-list
+        - var n = 0
+        ul.pagination
+            while n < pages
+                li.page-item
+                    a.page-link(href='?page=' + n)=++n
         .container-fluid
             .row
                 .col-lg-10.offset-lg-1.col-md-12.row.text-center
                     each item in products
                         +item(item)
-
-

@@ -35,13 +35,13 @@ block content
                     button.profile__btn.ease-in(type='submit') Update
             .col-md-6
                 .form-group.row
-                    label.col-3.col-form-label.text-right(for='name') Current password
+                    label.col-3.col-form-label.text-right(for='cur_password') Current password
                     .col-9
                         input#currentPassword.form-control.input--form(type='password' name='curpwd')
                 .form-group.row
-                    label.col-3.col-form-label.text-right(for='phone-no') New password
+                    label.col-3.col-form-label.text-right(for='new_password') New password
                     .col-9
-                        input#newPassword.form-control.input--form(type='password' name='pwd')
+                        input#newPassword.form-control.input--form(type='password' name='newpwd')
         .text-center.mt-4
             button.profile__signout.ease-in
                 a(href="/profile/signout") Sign Out

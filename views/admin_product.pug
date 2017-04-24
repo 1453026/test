@@ -2,14 +2,13 @@ doctype html
 html(lang='en')
   head
     meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    title Products Management
+    title Admin homepage
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css')
-    link(rel='stylesheet', href='/stylesheets/bootstrap/bootstrap.min.css', type='text/css')
-    link(rel='stylesheet', href='/stylesheets/admin.css', type='text/css')
-    //link(rel='stylesheet', href='css/effect.css', type='text/css')
+    link(rel='stylesheet', href='/stylesheets/admin_style.css', type='text/css')
+    link(rel='stylesheet', href='/stylesheets/admin_effect.css', type='text/css')
     script(src='https://use.fontawesome.com/ab5f3b016d.js')
   body
     #wrapper
@@ -21,83 +20,15 @@ html(lang='en')
             span.icon-bar
             span.icon-bar
           |  
-          a.navbar-brand(href='index.html') T.RACER
+          a.navbar-brand(href='/admin')
+            | T
+            span.orange .
+            | R
+            span.orange A
+            | C
+            span.orange E
+            | R
         ul.nav.navbar-right.top-nav
-          li.dropdown
-            a.dropdown-toggle(href='#', data-toggle='dropdown')
-              i.fa.fa-envelope
-              b.caret
-            ul.dropdown-menu.message-dropdown
-              li.message-preview
-                a(href='#')
-                  .media
-                    span.pull-left
-                      img.media-object(src='http://placehold.it/50x50', alt='')
-                    .media-body
-                      h5.media-heading
-                        strong John Smith
-                      p.small.text-muted
-                        i.fa.fa-clock-o
-                        |  Yesterday at 4:32 PM
-                      p Lorem ipsum dolor sit amet, consectetur...
-              li.message-preview
-                a(href='#')
-                  .media
-                    span.pull-left
-                      img.media-object(src='http://placehold.it/50x50', alt='')
-                    .media-body
-                      h5.media-heading
-                        strong John Smith
-                      p.small.text-muted
-                        i.fa.fa-clock-o
-                        |  Yesterday at 4:32 PM
-                      p Lorem ipsum dolor sit amet, consectetur...
-              li.message-preview
-                a(href='#')
-                  .media
-                    span.pull-left
-                      img.media-object(src='http://placehold.it/50x50', alt='')
-                    .media-body
-                      h5.media-heading
-                        strong John Smith
-                      p.small.text-muted
-                        i.fa.fa-clock-o
-                        |  Yesterday at 4:32 PM
-                      p Lorem ipsum dolor sit amet, consectetur...
-              li.message-footer
-                a(href='#') Read All New Messages
-          li.dropdown
-            a.dropdown-toggle(href='#', data-toggle='dropdown')
-              i.fa.fa-bell
-              b.caret
-            ul.dropdown-menu.alert-dropdown
-              li
-                a(href='#')
-                  | Alert 1 
-                  span.label.label-default Alert Badge
-              li
-                a(href='#')
-                  | Alert 2 
-                  span.label.label-primary Alert Badge
-              li
-                a(href='#')
-                  | Alert 3 
-                  span.label.label-success Alert Badge
-              li
-                a(href='#')
-                  | Alert 4 
-                  span.label.label-info Alert Badge
-              li
-                a(href='#')
-                  | Alert 5 
-                  span.label.label-warning Alert Badge
-              li
-                a(href='#')
-                  | Alert 6 
-                  span.label.label-danger Alert Badge
-              li.divider
-              li
-                a(href='#') View All
           li.dropdown
             a.dropdown-toggle(href='#', data-toggle='dropdown')
               i.fa.fa-user
@@ -105,12 +36,12 @@ html(lang='en')
               b.caret
             ul.dropdown-menu
               li
-                a(href='setting.html')
+                a(href='/admin/setting')
                   i.fa.fa-fw.fa-cog
                   |  Setting
               li.divider
               li
-                a(href='#')
+                a(href='/')
                   i.fa.fa-fw.fa-power-off
                   |  Log Out
         .collapse.navbar-collapse.navbar-ex1-collapse
@@ -122,24 +53,26 @@ html(lang='en')
                 span.input-group-btn
                   button.btn.btn-default(type='button')
                     i.fa.fa-search
-            li.nav-item
-              a.nav-link(href='/admin/dashboard')
+            li
+              a(href='/admin')
                 i.fa.fa-fw.fa-dashboard
                 |  &nbsp;Dashboard
-            li.nav-item
-              a.nav-link(href='/admin/users')
+            li
+              a(href='/admin/user_management')
                 i.fa.fa-fw.fa-id-card
                 |  &nbsp;Users
-            li.nav-item.active
-              a.nav-link(href='/admin/products')
+            li.active
+              a(href='/admin/products')
                 i.fa.fa-fw.fa-shopping-cart
                 |  &nbsp;Products
-            li.nav-item
-              a.nav-link(href='/admin/history')
-                i.fa.fa-history.fa-fw &nbsp;History
-            li.nav-item
-              a.nav-link(href='/admin/about')
-                i.fa.fa-address-book.fa-fw &nbsp;About
+            li
+              a(href='/admin/orders')
+                i.fa.fa-history.fa-fw 
+                |  &nbsp;Orders
+            li
+              a(href='/admin/about')
+                i.fa.fa-address-book.fa-fw 
+                |  &nbsp;About
       #page-wrapper
         .container-fluid
           .row
@@ -174,7 +107,7 @@ html(lang='en')
                 td 1
                 td
                   a.thumbnail(href='#')
-                    img(src='../user/images/collections/running/air-max-2017-running-shoe-small.jpg', alt='')
+                    img(src='/images/collections/running/air-max-2017-running-shoe-small.jpg', alt='')
                 td Air max 2017 running shoe
                 td Running
                 td $100
@@ -188,7 +121,7 @@ html(lang='en')
                 td 1
                 td
                   a.thumbnail(href='#')
-                    img(src='../user/images/collections/running/air-zoom-all-out-flyknit-running-shoe-small.jpg', alt='')
+                    img(src='/images/collections/running/air-zoom-all-out-flyknit-running-shoe-small.jpg', alt='')
                 td Air zoom all out flyknit running shoe
                 td Running
                 td $100
@@ -202,7 +135,7 @@ html(lang='en')
                 td 1
                 td
                   a.thumbnail(href='#')
-                    img(src='../user/images/collections/running/free-rn-flyknit-running-shoe-small.jpg', alt='')
+                    img(src='/images/collections/running/free-rn-flyknit-running-shoe-small.jpg', alt='')
                 td Free rn flyknit running shoe
                 td Running
                 td $100
@@ -242,5 +175,5 @@ html(lang='en')
       script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
       script(src='https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js')
       script(src='https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js')
-      script(src='scripts/morris.js')
-      script(src='scripts/script.js')
+      script(src='javascripts/morris.js')
+      script(src='javascripts/script.js')

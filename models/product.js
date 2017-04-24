@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var mongoosePaginate = require('mongoose-paginate');
 var Schema = mongoose.Schema;
 
 var schema = new Schema({
@@ -18,7 +19,7 @@ var schema = new Schema({
         tags: [String]
     }
 });
-
+schema.plugin(mongoosePaginate);
 module.exports = mongoose.model('Product', schema);
 
 /**

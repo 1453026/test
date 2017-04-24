@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var bcrypt = require('bcrypt');
 
 //create schema for User
 var schema = new mongoose.Schema({
@@ -18,13 +19,27 @@ schema.statics.authenticate = function(email, password, callback) {
             err.status = 401;
             return callback(err);
         }
-        if (password === user.password) {
-            return callback(null, user);
-        } else {
-            return callback();
-        }
+        bcrypt.compare(password, user.password, function(error, result) {
+            if (result === true) {
+                return callback(null, user);
+            } else {
+                return callback();
+            }
+        });
     });
 }
+
+//hash password
+schema.pre('save', function(next) {
+    var user = this;
+    bcrypt.hash(user.password, 10, function(err, hash) {
+        if (err) {
+            return next(err);
+        }
+        user.password = hash;
+        next();
+    })
+});
 
 var User = mongoose.model('User', schema);
 module.exports = User;
